@@ -39,7 +39,7 @@ const Email = () => {
                 <h1 className="text-3xl md:text-5xl sm:text-center md:text-start text-center font-bold italic">Contact Me</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 justify-center items-center">
                     {/* Form */}
-                    <form onSubmit={handleSubmit} className="p-6 bg-gray-100 rounded-lg shadow-md w-sm md:w-lg">
+                    <form onSubmit={handleSubmit} className="p-6 bg-gray-100 rounded-lg shadow-md w-full md:w-lg">
                         <div className="mb-4">
                             <label className="block text-gray-700" htmlFor="name">Name</label>
                             <input
