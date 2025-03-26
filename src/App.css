@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 .section:nth-child(odd) {
   background-color: #2d2d2d; 
   color: #e9e9ea;
