@@ -138,7 +138,7 @@ function App() {
         )}
       </section>
 
-      <section className='section h-auto flex justify-center items-center py-10 sm:px-5 md:px-0' id='contact'>
+      <section className='section h-auto flex justify-center items-center py-10' id='contact'>
         <Email />
       </section>
     </div>
