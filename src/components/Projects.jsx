@@ -10,7 +10,7 @@ import ImageProject from '../assets/projects/image.png';
 import { FaHtml5, FaCss3Alt, FaJs, FaPhp, FaReact } from 'react-icons/fa'; 
 import { SiTailwindcss, SiLaravel, SiMysql } from 'react-icons/si';
 
-const Project = () => {
+const Projects = () => {
   return (
     <div className="p-6 flex flex-col items-center justify-center">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -89,4 +89,4 @@ const Project = () => {
   );
 }
 
-export default Project;
+export default Projects;
