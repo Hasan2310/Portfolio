@@ -1,4 +1,3 @@
-Berikut adalah contoh deskripsi untuk **portfolio Anda** yang dibangun menggunakan **React.js** dan **Tailwind CSS**, dengan penambahan format dan emotikon agar terlihat lebih menarik:
 
 ---
 
@@ -23,7 +22,3 @@ Saat ini, saya sedang mengembangkan **portfolio ini** untuk menampilkan keteramp
 Portfolio ini masih dalam tahap pengembangan dan saya terus berusaha meningkatkan desain, fungsionalitas, dan pengalaman pengguna. Setiap hari, saya belajar lebih banyak tentang React dan Tailwind, dan saya siap untuk menambahkan lebih banyak fitur keren di masa depan! 💡
 
 ---
-
-Dengan deskripsi seperti ini, Anda bisa menarik perhatian pengunjung portfolio Anda sekaligus memberikan mereka gambaran jelas tentang siapa Anda, teknologi apa yang Anda gunakan, dan bagaimana Anda membangun aplikasi web. 😊
-
-Anda dapat menyesuaikan lebih lanjut dengan menambahkan detail atau proyek lain jika diperlukan.
