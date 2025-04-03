@@ -13,6 +13,7 @@ import LatestProject from './assets/projects/1446H.png';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import './App.css';
+import { Link } from 'react-router-dom';
 
 function App() {
   useEffect(() => {
@@ -320,9 +321,9 @@ function App() {
             </div>
 
             <div className="flex justify-center items-center mt-10">
-              <a href="/Portfolio/Projects" className="px-5 py-2 bg-white text-black text-lg rounded-xl transition duration-300">
+              <Link href="/Portfolio/Projects" className="px-5 py-2 bg-white text-black text-lg rounded-xl transition duration-300">
                 View More Projects
-              </a>
+              </Link>
             </div>
           </div>
         </div>
