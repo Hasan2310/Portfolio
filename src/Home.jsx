@@ -321,7 +321,7 @@ function App() {
             </div>
 
             <div className="flex justify-center items-center mt-10">
-              <Link href="/Portfolio/Projects" className="px-5 py-2 bg-white text-black text-lg rounded-xl transition duration-300">
+              <Link to="/Portfolio/Projects" className="px-5 py-2 bg-white text-black text-lg rounded-xl transition duration-300">
                 View More Projects
               </Link>
             </div>
