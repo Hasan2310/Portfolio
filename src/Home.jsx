@@ -13,9 +13,15 @@ import LatestProject from './assets/projects/1446H.png';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import './App.css';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
+  const navigate = useNavigate();
+
+  const goToProjects = () => {
+    navigate('/Portfolio/Projects'); // Navigasi tanpa refresh
+  };
+
   useEffect(() => {
     AOS.init({
       duration: 500,
@@ -321,9 +327,12 @@ function App() {
             </div>
 
             <div className="flex justify-center items-center mt-10">
-              <Link to="/Portfolio/Projects" className="px-5 py-2 bg-white text-black text-lg rounded-xl transition duration-300">
+              <a
+                href="/Portfolio/Projects"
+                className="px-5 py-2 bg-white text-black text-lg rounded-xl transition duration-300"
+              >
                 View More Projects
-              </Link>
+              </a>
             </div>
           </div>
         </div>
