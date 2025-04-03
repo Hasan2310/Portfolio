@@ -9,7 +9,7 @@ import { SiTailwindcss, SiLaravel, SiMysql } from 'react-icons/si';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import JalanSiagaImage from './assets/projects/JSM.png';
 import StoreImage from './assets/projects/EM.png';
-import ImageProject from './assets/projects/image.png';
+import LatestProject from './assets/projects/1446H.png';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import './App.css';
@@ -18,8 +18,8 @@ function App() {
   useEffect(() => {
     AOS.init({
       duration: 500,
-      once: false,  
-      offset: 5, 
+      once: false,
+      offset: 5,
     });
   }, []);
 
@@ -65,7 +65,7 @@ function App() {
       <section className="section h-screen" id="home">
         <div className="text-[#e9e9ea] flex flex-col items-center justify-center h-screen">
           <img
-            src={gambar} 
+            src={gambar}
             className="md:w-2xl w-3xl"
             data-aos="fade-up"
             data-aos-duration="1000"
@@ -88,8 +88,8 @@ function App() {
 
             <div
               className="relative md:text-7xl sm:text-6xl text-4xl"
-              data-aos="fade-up" 
-              data-aos-duration="1200" 
+              data-aos="fade-up"
+              data-aos-duration="1200"
               data-aos-delay="200"
             >
               <h1 className="font-extrabold tracking-widest uppercase">
@@ -102,7 +102,7 @@ function App() {
             className="md:text-5xl font-bold md:pt-5 pt-3 text-xl"
             data-aos="fade-up"
             data-aos-duration="1200"
-            data-aos-delay="300" 
+            data-aos-delay="300"
           >
             WEB DEVELOPER
           </h1>
@@ -239,6 +239,35 @@ function App() {
               <div className="flex flex-col sm:flex-row justify-center items-center">
                 <div className="relative sm:w-1/2 w-[450px] h-full" data-aos="fade-up" data-aos-delay="100">
                   <img
+                    src={LatestProject}
+                    alt="Project 3"
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                </div>
+                <div className="p-4 flex flex-col justify-center sm:w-1/2" data-aos="fade-left" data-aos-delay="300">
+                  <h3 className="text-xl font-semibold">Ramadan 1446H</h3>
+                  <p className="mt-2">
+                    Ramadan 1446H is a greeting card website for Ramadan 1446H, built using HTML, CSS, Tailwind, and JavaScript.
+                  </p>
+                  <div className="flex space-x-2 mt-2 sm:justify-center md:justify-start justify-center">
+                    <FaHtml5 className="text-red-500 grayscale transition duration-300 hover:grayscale-0" />
+                    <FaCss3Alt className="text-blue-500 grayscale transition duration-300 hover:grayscale-0" />
+                    <SiTailwindcss className="text-teal-400 grayscale transition duration-300 hover:grayscale-0" />
+                    <FaJs className="text-yellow-400 grayscale transition duration-300 hover:grayscale-0" />
+                  </div>
+                  <a
+                    href="https://hasan2310.github.io/Ramadan-1446H/"
+                    className="sm:justify-center md:justify-start justify-center mt-10 text-white flex items-center"
+                  >
+                    View More <AiOutlineArrowRight className="ml-2 text-white" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Project 1 */}
+              <div className="flex flex-col sm:flex-row justify-center items-center">
+                <div className="relative sm:w-1/2 w-[450px] h-full" data-aos="fade-up" data-aos-delay="100">
+                  <img
                     src={JalanSiagaImage}
                     alt="Project 1"
                     className="w-full h-full object-cover rounded-xl"
@@ -263,6 +292,7 @@ function App() {
                 </div>
               </div>
 
+              {/* Project 2 */}
               <div className="flex flex-col sm:flex-row justify-center items-center">
                 <div className="relative sm:w-1/2 w-[450px] h-full" data-aos="fade-up" data-aos-delay="100">
                   <img
@@ -287,30 +317,12 @@ function App() {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row justify-center items-center">
-                <div className="relative sm:w-1/2 w-[450px] h-full" data-aos="fade-up" data-aos-delay="100">
-                  <img
-                    src={ImageProject}
-                    alt="Project 3"
-                    className="w-full h-full object-cover rounded-xl"
-                  />
-                </div>
-                <div className="p-4 flex flex-col justify-center sm:w-1/2" data-aos="fade-left" data-aos-delay="300">
-                  <h3 className="text-xl font-semibold">Ramadan 1445H</h3>
-                  <p className="mt-2">
-                    Ramadan 1445H is a greeting card website for Ramadan 1445H, built using HTML, CSS, Tailwind, and JavaScript.
-                  </p>
-                  <div className="flex space-x-2 mt-2 sm:justify-center md:justify-start justify-center">
-                    <FaHtml5 className="text-red-500 grayscale transition duration-300 hover:grayscale-0" />
-                    <FaCss3Alt className="text-blue-500 grayscale transition duration-300 hover:grayscale-0" />
-                    <SiTailwindcss className="text-teal-400 grayscale transition duration-300 hover:grayscale-0" />
-                    <FaJs className="text-yellow-400 grayscale transition duration-300 hover:grayscale-0" />
-                  </div>
-                  <a href="https://github.com/Hasan2310/Ramadhan-1445H" className='sm:justify-center md:justify-start justify-center mt-10 text-white flex items-center'>
-                    View More <AiOutlineArrowRight className="ml-2 text-white" />
-                  </a>
-                </div>
-              </div>
+            </div>
+
+            <div className="flex justify-center items-center mt-10">
+              <a href="/Portfolio/Projects" className="px-5 py-2 bg-white text-black text-lg rounded-xl transition duration-300">
+                View More Projects
+              </a>
             </div>
           </div>
         </div>
