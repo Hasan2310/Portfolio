@@ -323,16 +323,15 @@ function App() {
                   </a>
                 </div>
               </div>
-
             </div>
 
             <div className="flex justify-center items-center mt-10">
-              <a
-                href="/Portfolio/Projects"
+              <button
+                onClick={goToProjects}
                 className="px-5 py-2 bg-white text-black text-lg rounded-xl transition duration-300"
               >
                 View More Projects
-              </a>
+              </button>
             </div>
           </div>
         </div>
