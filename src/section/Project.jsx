@@ -4,6 +4,26 @@ import PlaneIcon from '../assets/pesawat.png';
 
 const Project = () => {
   const [hasArrived, setHasArrived] = useState(false);
+  const [activeSkill, setActiveSkill] = useState(null);
+  const [isImageActive, setIsImageActive] = useState(false);
+
+  const skills = [
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+      alt: "HTML5",
+      id: "html",
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+      alt: "Tailwind CSS",
+      id: "tailwind",
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
+      alt: "Laravel",
+      id: "laravel",
+    },
+  ];
 
   return (
     <section
@@ -24,19 +44,28 @@ const Project = () => {
       </div>
 
       <div className="flex flex-col lg:flex-row gap-6 mt-8 w-full">
-        {/* Gambar */}
+        {/* Gambar TFly pakai motion */}
         <motion.div
-          className="bg-[#e0e0e4]/10 p-3 rounded-2xl shadow-xl transition-all duration-300 w-full lg:w-1/2"
+          className="bg-[#e0e0e4]/10 p-3 rounded-2xl shadow-xl w-full lg:w-1/2"
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, }}
+          transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
-          <img
-            src="./Projects/Tfly.png"
-            className="w-full rounded-xl grayscale hover:grayscale-0 transition duration-300"
-            alt="TFly Preview"
-          />
+          <motion.img
+  src="./Projects/Tfly.png"
+  alt="TFly Preview"
+  onClick={() => setIsImageActive(!isImageActive)}
+  className={`w-full rounded-xl cursor-pointer transition-all duration-500
+    ${isImageActive ? 'grayscale-0' : 'grayscale'} 
+    hover:grayscale-0`}
+  initial={{ opacity: 0, scale: 0.95 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  whileHover={{ scale: 1.03 }}
+  whileTap={{ scale: 0.97 }}
+  transition={{ duration: 0.6, ease: 'easeOut' }}
+  viewport={{ once: true }}
+/>
         </motion.div>
 
         {/* Deskripsi */}
@@ -48,8 +77,7 @@ const Project = () => {
           viewport={{ once: true }}
         >
           <div className="space-y-5 relative">
-
-            {/* ✈️ Animasi pesawat dengan whileInView */}
+            {/* ✈️ Animasi pesawat */}
             <motion.img
               src={PlaneIcon}
               alt="Plane"
@@ -61,27 +89,23 @@ const Project = () => {
                   : { x: '110%' }
               }
               transition={{
-                x: {
-                  duration: 3, // 🐢 makin pelan terbangnya
-                  ease: 'easeInOut',
-                },
+                x: { duration: 3, ease: 'easeInOut' },
                 y: hasArrived
                   ? {
-                    duration: 8,
-                    repeat: Infinity,
-                    repeatType: 'loop',
-                    ease: 'easeInOut',
-                  }
+                      duration: 8,
+                      repeat: Infinity,
+                      repeatType: 'loop',
+                      ease: 'easeInOut',
+                    }
                   : {},
               }}
               viewport={{ once: true }}
               onViewportEnter={() => {
                 if (!hasArrived) {
-                  setTimeout(() => setHasArrived(true), 1000); // ⏱️ delay = durasi x
+                  setTimeout(() => setHasArrived(true), 1000);
                 }
               }}
             />
-
 
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold">TFly.</h1>
 
@@ -92,25 +116,36 @@ const Project = () => {
                 availability, easy booking, and responsive design on all devices.
               </p>
 
+              {/* ICON SKILL pake motion */}
               <div className="flex flex-row gap-4 items-center">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
-                  className="w-7 h-7 sm:w-8 sm:h-8 grayscale hover:grayscale-0 transition duration-300"
-                  alt="HTML5"
-                />
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
-                  className="w-7 h-7 sm:w-8 sm:h-8 grayscale hover:grayscale-0 transition duration-300"
-                  alt="Tailwind CSS"
-                />
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg"
-                  className="w-7 h-7 sm:w-8 sm:h-8 grayscale hover:grayscale-0 transition duration-300"
-                  alt="Laravel"
-                />
+                {skills.map((skill, index) => (
+                  <motion.img
+                    key={skill.id}
+                    src={skill.src}
+                    alt={skill.alt}
+                    onClick={() =>
+                      setActiveSkill((prev) =>
+                        prev === skill.id ? null : skill.id
+                      )
+                    }
+                    className={`w-7 h-7 sm:w-8 sm:h-8 cursor-pointer transition-all rounded-md ${
+                      activeSkill === skill.id
+                        ? 'grayscale-0 scale-110'
+                        : 'grayscale hover:grayscale-0 hover:scale-105'
+                    }`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                    viewport={{ once: true }}
+                  />
+                ))}
               </div>
 
-              <a href='https://github.com/Hasan2310/TFly.' className="bg-white text-black px-6 py-2 font-bold uppercase tracking-wide rounded-xl shadow-md transition bg-purple-gradient">
+              <a
+                href="https://github.com/Hasan2310/TFly."
+                className="bg-white text-black px-6 py-2 font-bold uppercase tracking-wide rounded-xl shadow-md transition bg-purple-gradient"
+              >
                 View Project
               </a>
             </div>

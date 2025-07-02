@@ -28,7 +28,7 @@ const Loading = () => {
       <AnimatePresence>
         {isVisible && (
           <>
-            {/* Layer Grape Purple di bawah */}
+            {/* Grape Purple Blur Background */}
             <motion.div
               initial={{ y: 0 }}
               animate={{ y: 0 }}
@@ -38,14 +38,13 @@ const Loading = () => {
                 borderTopRightRadius: '100%',
               }}
               transition={{
-                delay: 0.001, // muncul lebih lambat
-                duration: 1.1,
-                ease: [0.6, 0.01, -0.05, 0.95],
+                delay: 0.001,
+                duration: 2.0,
+                ease: [0.3, 0.1, 0.3, 1],
               }}
-              className="fixed top-0 left-0 w-full h-screen bg-[#4c1d95]  z-[9998] blur-lg"
+              className="fixed top-0 left-0 w-full h-screen bg-[#4c1d95] z-[9998] blur-lg"
             />
 
-            {/* Layer utama loading */}
             <motion.div
               initial={{ y: 0 }}
               animate={{ y: 0 }}
@@ -55,11 +54,12 @@ const Loading = () => {
                 borderTopRightRadius: '100%',
               }}
               transition={{
-                duration: 1,
-                ease: [0.6, 0.01, -0.05, 0.95],
+                duration: 1.8,
+                ease: [0.3, 0.1, 0.3, 1],
               }}
               className="fixed top-0 left-0 w-full h-screen bg-[#1a1a1a] flex items-center justify-center z-[9999]"
             >
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.8, y: 30 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -76,6 +76,7 @@ const Loading = () => {
           </>
         )}
       </AnimatePresence>
+
     </div>
   );
 };

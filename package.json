@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-     "push": "git add . && git commit -m 'update' && git push"
+    "push": "git add . && git commit -m 'update' && git push"
   },
   "dependencies": {
     "@svgr/webpack": "^8.1.0",

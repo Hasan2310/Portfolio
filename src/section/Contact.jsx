@@ -16,7 +16,7 @@ const Contact = () => {
         (result) => {
           console.log(result.text);
           setStatus('success');
-          formRef.current.reset(); // clear form
+          formRef.current.reset();
         },
         (error) => {
           console.log(error.text);
@@ -29,16 +29,16 @@ const Contact = () => {
     if (status) {
       const timeout = setTimeout(() => {
         setStatus(null);
-      }, 4000); // hilang dalam 4 detik
+      }, 4000);
       return () => clearTimeout(timeout);
     }
   }, [status]);
 
   return (
-    <section className="min-h-screen flex justify-center items-center bg-[#0f0f0f] text-white px-4 py-12" id='contact'>
+    <section className="min-h-screen flex justify-center items-center bg-[#0f0f0f] text-white px-4 py-12" id="contact">
       <div className="w-full max-w-6xl flex flex-col md:flex-row items-start gap-12">
 
-        {/* KIRI: Judul + Form */}
+        {/* LEFT: Title + Form */}
         <div className="flex-1 space-y-6 px-4 mx-auto w-full">
           <motion.h2
             className="text-3xl md:text-6xl font-bold uppercase text-anton"
@@ -60,12 +60,12 @@ const Contact = () => {
             viewport={{ once: true }}
           >
             <div>
-              <label className="block text-sm font-semibold mb-1">Nama</label>
+              <label className="block text-sm font-semibold mb-1">Name</label>
               <input
                 type="text"
                 name="name"
                 required
-                placeholder="Masukkan namamu"
+                placeholder="Enter your name"
                 className="w-full px-4 py-2 bg-white/5 text-white border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-800"
               />
             </div>
@@ -80,12 +80,12 @@ const Contact = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1">Pesan</label>
+              <label className="block text-sm font-semibold mb-1">Message</label>
               <textarea
                 name="message"
                 rows="4"
                 required
-                placeholder="Tulis pesanmu di sini..."
+                placeholder="Write your message here..."
                 className="w-full px-4 py-2 bg-white/5 text-white border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-800"
               ></textarea>
             </div>
@@ -93,7 +93,7 @@ const Contact = () => {
               type="submit"
               className="w-full flex justify-center items-center gap-2 px-4 py-2 bg-purple-800 hover:bg-purple-900 text-white font-semibold rounded-md transition duration-300"
             >
-              <Send size={18} /> Kirim Pesan
+              <Send size={18} /> Send Message
             </button>
 
             {/* Status Feedback */}
@@ -104,7 +104,7 @@ const Contact = () => {
                 exit={{ opacity: 0, y: -10 }}
                 className="mt-3 text-sm text-white font-medium tracking-wide"
               >
-                Your message has been sent successfully..
+                Your message has been sent successfully.
               </motion.p>
             )}
 
@@ -115,30 +115,30 @@ const Contact = () => {
                 exit={{ opacity: 0, y: -10 }}
                 className="mt-3 text-sm text-white font-medium tracking-wide"
               >
-                Something went wrong. Please try again later..
+                Something went wrong. Please try again later.
               </motion.p>
             )}
           </motion.form>
         </div>
 
-        {/* KANAN: Ikon Sosial */}
+        {/* RIGHT: Social Icons */}
         <div className="flex-1 flex justify-center items-center px-4 mx-auto">
           <div className="h-full flex justify-center items-center gap-6 md:mt-50 sm:mt-0">
             {[
               {
                 href: "https://github.com/Hasan2310",
                 icon: <Github size={28} />,
-                hoverClass: "group-hover:text-gray-300", // GitHub
+                hoverClass: "group-hover:text-gray-300",
               },
               {
                 href: "https://instagram.com/san.lbh",
                 icon: <Instagram size={28} />,
-                hoverClass: "group-hover:text-pink-500", // Instagram
+                hoverClass: "group-hover:text-pink-500",
               },
               {
                 href: "https://id.linkedin.com/in/hasan-ahmad-halibah-6ba2b830b",
                 icon: <Linkedin size={28} />,
-                hoverClass: "group-hover:text-sky-500", // LinkedIn
+                hoverClass: "group-hover:text-sky-500",
               },
             ].map((item, index) => (
               <motion.a
@@ -157,7 +157,7 @@ const Contact = () => {
                   transform rotate-x-6 rotate-y-3 group-hover:-translate-y-2 group-hover:scale-105
                   group-hover:rotate-x-0 group-hover:rotate-y-0"
                 >
-                    <div className={`text-white ${item.hoverClass} transition`}>
+                  <div className={`text-white ${item.hoverClass} transition`}>
                     {item.icon}
                   </div>
                 </div>
