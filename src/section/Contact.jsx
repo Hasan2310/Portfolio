@@ -104,7 +104,7 @@ const Contact = () => {
                 exit={{ opacity: 0, y: -10 }}
                 className="mt-3 text-sm text-white font-medium tracking-wide"
               >
-                Your message has been sent successfully.
+                Your message has been sent successfully..
               </motion.p>
             )}
 
@@ -115,7 +115,7 @@ const Contact = () => {
                 exit={{ opacity: 0, y: -10 }}
                 className="mt-3 text-sm text-white font-medium tracking-wide"
               >
-                Something went wrong. Please try again later.
+                Something went wrong. Please try again later..
               </motion.p>
             )}
           </motion.form>
