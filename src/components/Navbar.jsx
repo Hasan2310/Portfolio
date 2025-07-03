@@ -29,62 +29,84 @@ const Navbar = () => {
     setIsMobileMenuOpen(prev => !prev);
   };
 
+  // 🔧 Scroll manual ke ID (tanpa hash di URL)
+  const scrollToSection = (id) => {
+    const el = document.querySelector(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div>
+      {/* Navbar */}
       <motion.nav
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isMobileMenuOpen
-          ? 'bg-transparent shadow-none backdrop-blur-none'
-          : isScrolled
+        className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 ${
+          isMobileMenuOpen
+            ? 'bg-transparent shadow-none backdrop-blur-none'
+            : isScrolled
             ? 'bg-[#1a1a1a]/80 backdrop-blur-md shadow-md'
             : 'bg-transparent'
-          }`}
+        }`}
       >
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center text-white relative">
           {/* Logo */}
-          <div className="z-50">
+          <div className="z-40">
             <Logo className="w-12 h-12 text-white" />
           </div>
 
-          {/* Hamburger Menu */}
-          <button
-            onClick={toggleMobileMenu}
-            className="md:hidden text-white text-3xl focus:outline-none z-50"
-          >
-            {isMobileMenuOpen ? (
-              <X size={32} strokeWidth={2} />
-            ) : (
-              <Menu size={32} strokeWidth={2} />
-            )}
-          </button>
-
           {/* Desktop Menu */}
-          <ul className="hidden md:flex gap-6 text-sm uppercase tracking-wide font-medium">
+          <ul className="hidden md:flex gap-6 text-sm uppercase tracking-wide font-medium items-center">
             {menuItems.map((item, index) => (
               <li key={index}>
-                {item.label === 'Contact' ? (
-                  <a
-                    href={item.href}
-                    className="px-4 py-2 rounded-full bg-gradient-to-r from-[#4c1d95] to-[#5b21b6] text-white font-semibold shadow-md hover:shadow-xl hover:scale-105 hover:brightness-110 transition duration-300"
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <a
-                    href={item.href}
-                    className="hover:text-[#5b21b6] transition duration-300"
-                  >
-                    {item.label}
-                  </a>
-                )}
+                <button
+                  onClick={() => scrollToSection(item.href)}
+                  className={`${
+                    item.label === 'Contact'
+                      ? 'px-4 py-2 rounded-full bg-gradient-to-r from-[#4c1d95] to-[#5b21b6] text-white font-semibold shadow-md hover:shadow-xl hover:scale-105 hover:brightness-110'
+                      : 'hover:text-[#5b21b6]'
+                  } transition duration-300`}
+                >
+                  {item.label}
+                </button>
               </li>
             ))}
-
           </ul>
         </div>
       </motion.nav>
+
+      {/* Hamburger Menu - di luar nav */}
+      <button
+        onClick={toggleMobileMenu}
+        className="fixed top-6 right-6 z-[9999] md:hidden text-white text-3xl"
+      >
+        <AnimatePresence mode="wait" initial={false}>
+          {isMobileMenuOpen ? (
+            <motion.div
+              key="x-icon"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.2 }}
+            >
+              <X size={32} strokeWidth={2} />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="menu-icon"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Menu size={32} strokeWidth={2} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </button>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -100,26 +122,21 @@ const Navbar = () => {
             <ul className="flex flex-col gap-6 text-sm uppercase tracking-wide font-medium">
               {menuItems.map((item, index) => (
                 <li key={index}>
-                  {item.label === 'Contact' ? (
-                    <a
-                      href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)} // ← INI DIA
-                      className="px-4 py-2 rounded-full bg-gradient-to-r from-[#4c1d95] to-[#5b21b6] text-white font-semibold shadow-md hover:shadow-xl hover:scale-105 hover:brightness-110 transition duration-300"
-                    >
-                      {item.label}
-                    </a>
-                  ) : (
-                    <a
-                      href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)} // ← INI JUGA
-                      className="hover:text-[#5b21b6] transition duration-300"
-                    >
-                      {item.label}
-                    </a>
-                  )}
+                  <button
+                    onClick={() => {
+                      scrollToSection(item.href);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`${
+                      item.label === 'Contact'
+                        ? 'px-4 py-2 rounded-full bg-gradient-to-r from-[#4c1d95] to-[#5b21b6] text-white font-semibold shadow-md hover:shadow-xl hover:scale-105 hover:brightness-110'
+                        : 'hover:text-[#5b21b6]'
+                    } transition duration-300 w-full text-left`}
+                  >
+                    {item.label}
+                  </button>
                 </li>
               ))}
-
             </ul>
           </motion.div>
         )}
