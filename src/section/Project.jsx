@@ -39,7 +39,7 @@ const handleViewProject = () => {
     `,
     background: '#1a1a1a',
     color: '#eaeaea',
-    confirmButtonText: 'OK, Let’s Go!',
+    confirmButtonText: 'OK, Let`s Go!',
     confirmButtonColor: '#5b21b6',
     scrollbarPadding: false,
     allowOutsideClick: false,
