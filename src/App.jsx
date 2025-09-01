@@ -33,7 +33,7 @@ const App = () => {
   }, [showLoading]);
 
   return (
-    <>
+    <div className="overflow-hidden">
       <Loading isVisible={showLoading} />
       {showContent && (
         <>
@@ -51,7 +51,7 @@ const App = () => {
 
         </>
       )}
-    </>
+    </div>
   )
 }
 

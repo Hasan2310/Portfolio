@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const AboutMe = () => {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center px-4 md:px-10" id="about">
+    <section className="min-h-screen flex flex-col justify-center items-center px-4 md:px-30" id="about">
       {/* Judul Animasi */}
       <motion.h1
         className="text-anton text-[60px] sm:text-[100px] md:text-[180px] lg:text-[250px] text-center leading-none"
@@ -18,7 +18,7 @@ const AboutMe = () => {
         ABOUT ME
       </motion.h1>
 
-      <div className="sm:text-lg md:text-xl lg:text-2xl max-w-5xl text-justify mt-10 space-y-6 px-4 sm:px-0">
+      <div className="sm:text-lg md:text-xl lg:text-2xl text-justify mt-10 space-y-6 px-4 sm:px-0">
         {/* Paragraf 1 */}
         <motion.p
           initial={{ opacity: 0, x: -40 }}

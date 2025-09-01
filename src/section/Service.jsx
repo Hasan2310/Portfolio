@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 const Service = () => {
     return (
-        <section className="relative min-h-screen flex items-center px-6 sm:px-10 py-16 bg-[#111] text-[#e0e0e0] overflow-hidden" id="service">
+        <section className="relative min-h-screen flex items-center px-6 md:px-30 py-16 bg-[#111] text-[#e0e0e0] overflow-hidden" id="service">
             {/* Konten Utama */}
             <div className="relative z-10 container mx-auto flex flex-col lg:flex-row justify-between items-center gap-16">
 
@@ -15,7 +15,7 @@ const Service = () => {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true, amount: 0.2 }}
                 >
-                    <h1 className="text-anton text-[80px] sm:text-[120px] md:text-[160px] lg:text-[200px] xl:text-[220px] leading-none text-center lg:text-left text-white">
+                    <h1 className="text-anton text-[80px] sm:text-[120px] md:text-[180px] leading-none text-center lg:text-left text-white">
                         <span className='text-purple-gradient'>MY</span><br />SERVICE
                     </h1>
                 </motion.div>

@@ -1,63 +1,76 @@
+/* === IMPORT FONT & TAILWIND === */
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import "tailwindcss";
+
+/* === CUSTOM UTILITIES === */
 @layer utilities {
-  .stroke-white {
-    -webkit-text-stroke: 2px white;
+  .stroke-white { -webkit-text-stroke: 2px white; }
+  .stroke-[1.5px] { -webkit-text-stroke: 1.5px white; }
+
+  .text-anton {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
   }
-  .stroke-[1.5px] {
-    -webkit-text-stroke: 1.5px white;
+
+  .text-purple-gradient {
+    background: linear-gradient(to right, #4c1d95, #5b21b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-purple-gradient {
+    background: linear-gradient(to right, #4c1d95, #5b21b6);
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,.3);
+    transition: all .3s ease;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .bg-purple-gradient:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,.4);
+    transform: scale(1.05);
+    filter: brightness(1.1);
+    cursor: pointer;
   }
 }
 
-.text-anton {
-  font-family: "Anton", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+.tech-stack-stroke {
+  border: 2px solid;
+  border-image: linear-gradient(to right, #4c1d95, #5b21b6) 1;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-weight: 600;
+  color: #fff; /* icon tetep kelihatan */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.3s ease;
 }
 
-section:nth-child(odd) {
-  background-color: #1a1a1a;
-  color: #eaeaea;
-}
-
-section:nth-child(even) {
-  background-color: #2e2e2e;
-  color: #eaeaea;
-}
-
-.custom-scroll::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
-}
-
-.custom-scroll {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
-}
-
-.text-purple-gradient {
+.tech-stack-stroke span.text-gradient {
   background: linear-gradient(to right, #4c1d95, #5b21b6);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
-.bg-purple-gradient {
-  background: linear-gradient(to right, #4c1d95, #5b21b6);
-  color: white;
-    font-weight: 600;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  display: inline-block;
-  text-align: center;
-}
-
-.bg-purple-gradient:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  transform: scale(1.05);
-  filter: brightness(1.1);
-  cursor: pointer;
-}
-
-html {
-  overflow-x: hidden;
+/* === GLOBAL RESETS (scroll tetap aktif) === */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;   /* no horizontal scroll */
+  overflow-y: auto;     /* ✅ scroll jalan */
+  scrollbar-width: none;
   scroll-behavior: smooth;
 }
+html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
+
+/* === SECTION BG === */
+section:nth-child(odd)  { background-color:#1a1a1a; color:#eaeaea; }
+section:nth-child(even) { background-color:#2e2e2e; color:#eaeaea; }
+  
